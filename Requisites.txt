@@ -1,0 +1,16 @@
+pip install mysql-connector-python
+pip install flask
+
+CREATE DATABASE Desproj;
+USE Desproj;
+
+CREATE TABLE sai (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    user_name VARCHAR(50) NOT NULL,
+    user_age INT NOT NULL,
+    user_phone VARCHAR(15) NOT NULL,
+    user_address TEXT NOT NULL,
+    user_email VARCHAR(100) NOT NULL
+);

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Data Form</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(48, 205, 90, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+input, textarea, select {
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+   
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bio Data Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+            
+            <label>Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3"></textarea>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="interest">Area of Interest:</label>
+            <input type="text" id="interest" name="interest" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

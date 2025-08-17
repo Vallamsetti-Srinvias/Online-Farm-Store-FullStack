@@ -1,0 +1,25 @@
+void digi() {
+    if (op == 0) {
+        a = atof(yytext);
+    } else {
+        b = atof(yytext);
+        switch (op) {
+            case 1: a = a + b; break;
+            case 2: a = a - b; break;
+            case 3: a = a * b; break;
+            case 4: a = a / b; break;
+            case 5: a = pow(a, b); break;
+        }
+        op = 0;
+    }
+}
+
+int main() {
+    printf("Enter an arithmetic expression:\n");
+    yylex();
+    return 0;
+}
+
+int yywrap() {
+    return 1;
+}

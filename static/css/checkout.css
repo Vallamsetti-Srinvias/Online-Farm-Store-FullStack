@@ -1,0 +1,77 @@
+/* === Checkout Page === */
+.checkout-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+}
+
+.checkout-section h1 {
+    font-size: 32px;
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.checkout-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-section input[type="text"],
+.checkout-section input[type="number"],
+.checkout-section input[type="email"] {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.checkout-section input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.checkout-section button[type="submit"] {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-section button[type="submit"]:hover {
+    background-color: var(--secondary);
+}
+
+.checkout-section h2 {
+    font-size: 24px;
+    margin-top: 40px;
+    color: var(--dark);
+    text-align: center;
+}
+
+.checkout-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.checkout-section ul li {
+    padding: 12px;
+    background-color: #f6fff2;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #444;
+    font-size: 16px;
+}

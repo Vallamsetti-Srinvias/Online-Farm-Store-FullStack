@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas & SVG Drawing</title>
+</head>
+<body>
+    <h2>Drawing with Canvas</h2>
+    <canvas id="myCanvas" width="300" height="200" style="border:1px solid black;"></canvas>
+
+    <h2>Drawing with SVG</h2>
+    <svg width="300" height="200" style="border:1px solid rgb(0, 0, 0);">
+        <!-- Line -->
+        <line x1="10" y1="10" x2="150" y2="10" stroke="red" stroke-width="2" />
+        <!-- Circle -->
+        <circle cx="80" cy="80" r="30" fill="blue" />
+        <!-- Rectangle -->
+        <rect x="150" y="50" width="80" height="40" fill="skyblue" />
+    </svg>
+
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let ctx = canvas.getContext("2d");
+
+        // Draw Line
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(150, 10);
+        ctx.strokeStyle = "green";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw Circle
+        ctx.beginPath();
+        ctx.arc(80, 80, 30, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        // Draw Rectangle
+        ctx.fillStyle = "red";
+        ctx.fillRect(150, 50, 80, 40);
+    </script>
+</body>
+</html>

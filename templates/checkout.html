@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <style>
+    /* === Checkout Page === */
+    .checkout-section {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 40px 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .checkout-section h1 {
+        font-size: 32px;
+        text-align: center;
+        color: #2b7a78; /* Replace var(--primary) with actual color */
+        margin-bottom: 30px;
+    }
+
+    .checkout-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .checkout-section input[type="text"],
+    .checkout-section input[type="number"],
+    .checkout-section input[type="email"] {
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    .checkout-section input:focus {
+        border-color: #2b7a78;
+        outline: none;
+    }
+
+    .checkout-section button[type="submit"] {
+        background-color: #2b7a78;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .checkout-section button[type="submit"]:hover {
+        background-color: #205c5a; /* hover color */
+    }
+
+    .checkout-section h2 {
+        font-size: 24px;
+        margin-top: 40px;
+        color: #17252a;
+        text-align: center;
+    }
+
+    .checkout-section ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .checkout-section ul li {
+        padding: 12px;
+        background-color: #f6fff2;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        color: #444;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-section">
+    <h1>Checkout</h1>
+    <form method="POST">
+      <input type="text" name="user_name" placeholder="Your Name" required>
+      <input type="number" name="user_age" placeholder="Your Age" required>
+      <input type="text" name="user_phone" placeholder="Your Phone Number" required>
+      <input type="text" name="user_address" placeholder="Your Address" required>
+      <input type="email" name="user_email" placeholder="Your Email" required>
+      <button type="submit">Place Order</button>
+    </form>
+    <h2>Your Cart</h2>
+    <ul>
+      {% for item in cart %}
+      <li>{{ item.product_name }} - Rs.{{ item.price }} x {{ item.quantity }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

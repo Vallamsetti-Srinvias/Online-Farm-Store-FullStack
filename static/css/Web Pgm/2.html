@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas and SVG Drawing</title>
+</head>
+<body>
+    <h2>Canvas Drawing</h2>
+    <canvas id="canvas" width="300" height="200" style="border:1px solid"></canvas>
+    
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(20, 20);
+        ctx.lineTo(280, 20);
+        ctx.stroke();
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(50, 50, 100, 50);
+
+        ctx.beginPath();
+        ctx.arc(200, 100, 40, 0, 2 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+    </script>
+
+    <h2>SVG Drawing</h2>
+    <svg width="300" height="200" style="border:1px solid">
+        <line x1="20" y1="20" x2="280" y2="20" stroke="red"  />
+        <rect x="50" y="50" width="100" height="50" fill="blue" />
+        <circle cx="200" cy="100" r="40" fill="red" />
+    </svg>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>HTML5 Form with Various Inputs</h2>
+    
+    <form>
+        <!-- Color Picker -->
+        <label for="color">Choose a Color:</label>
+        <input type="color" id="color" name="color">
+        <br>
+
+        <!-- Date Picker -->
+        <label for="date">Select a Date:</label>
+        <input type="date" id="date" name="date">
+        <br>
+
+        <!-- Email Input -->
+        <label for="email">Enter Email:</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        <br>
+
+        <!-- Range Slider -->
+        <label for="range">Select a Range (1-100):</label>
+        <input type="range" id="range" name="range" min="1" max="100">
+        <br>
+
+        <!-- Number Input -->
+        <label for="number">Enter a Number (1-100):</label>
+        <input type="number" id="number" name="number" min="1" max="100">
+        <br>
+
+        <!-- URL Input -->
+        <label for="url">Enter Website URL:</label>
+        <input type="url" id="url" name="url" placeholder="https://example.com" required>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

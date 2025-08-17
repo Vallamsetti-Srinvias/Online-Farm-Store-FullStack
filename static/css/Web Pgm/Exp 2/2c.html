@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Web Page</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Internal CSS for theming -->
+  <style>
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      text-decoration: salmon;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+
+    .content {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#" style="transition: 0.3s;" onmouseover="this.style.backgroundColor='lightgreen'" onmouseout="this.style.backgroundColor='transparent'">Home</a></li>
+        <li><a href="#" style="transition: 0.3s;" onmouseover="this.style.backgroundColor='#1abc9c'" onmouseout="this.style.backgroundColor='transparent'">hello</a></li>
+        <li><a href="#" style="transition: 0.3s;" onmouseover="this.style.backgroundColor='#1abc9c'" onmouseout="this.style.backgroundColor='transparent'">Services</a></li>
+        <li><a href="#" style="transition: 0.3s;" onmouseover="this.style.backgroundColor='#1abc9c'" onmouseout="this.style.backgroundColor='transparent'">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <h2>Welcome!</h2>
+      <p>This is a responsive web page using inline, internal, and external CSS styles.</p>
+      <p>Resize your browser to see how the layout adjusts across different screen sizes.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Responsive Website. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

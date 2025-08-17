@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player with Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My Video Player</h2>
+
+  <video id="myVideo" controls>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <label>
+    Playback Speed:
+    <select id="speed">
+      <option value="0.5">0.5x</option>
+      <option value="1">1x (Normal)</option>
+      <option value="1.5">1.5x</option>
+      <option value="2">2x</option>
+    </select>
+  </label>
+
+  <label>
+    Volume:
+    <input type="range" id="volume" min="0" max="1" step="0.1">
+  </label>
+
+  <script>
+    const video = document.getElementById("myVideo");
+    const speed = document.getElementById("speed");
+    const volume = document.getElementById("volume");
+
+    // Load preferences from localStorage
+    window.onload = function () {
+      const savedSpeed = localStorage.getItem("videoSpeed");
+      const savedVolume = localStorage.getItem("videoVolume");
+
+      if (savedSpeed) {
+        speed.value = savedSpeed;
+        video.playbackRate = parseFloat(savedSpeed);
+      }
+
+      if (savedVolume) {
+        volume.value = savedVolume;
+        video.volume = parseFloat(savedVolume);
+      }
+    };
+
+    // Save speed preference
+    speed.addEventListener("change", function () {
+      const value = speed.value;
+      video.playbackRate = parseFloat(value);
+      localStorage.setItem("videoSpeed", value);
+    });
+
+    // Save volume preference
+    volume.addEventListener("input", function () {
+      const value = volume.value;
+      video.volume = parseFloat(value);
+      localStorage.setItem("videoVolume", value);
+    });
+  </script>
+
+</body>
+</html>

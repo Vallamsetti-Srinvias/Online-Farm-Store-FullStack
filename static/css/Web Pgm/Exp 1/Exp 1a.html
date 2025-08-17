@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    .quiz-box {
+      background: #fff;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .option {
+      margin: 8px 0;
+      display: block;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #score {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <div id="question" class="question"></div>
+    <div id="options"></div>
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="score"></div>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Paris", "Madrid", "Rome"],
+        answer: "Paris"
+      },
+      {
+        question: "Which language runs in the browser?",
+        options: ["Python", "Java", "C++", "JavaScript"],
+        answer: "JavaScript"
+      },
+      {
+        question: "Who founded Microsoft?",
+        options: ["Steve Jobs", "Elon Musk", "Bill Gates", "Mark Zuckerberg"],
+        answer: "Bill Gates"
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = quiz[current];
+      document.getElementById("question").innerText = q.question;
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+
+      q.options.forEach(option => {
+        const label = document.createElement("label");
+        label.className = "option";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "option";
+        input.value = option;
+        label.appendChild(input);
+        label.append(" " + option);
+        optionsDiv.appendChild(label);
+      });
+    }
+
+    function checkAnswer() {
+      const selected = document.querySelector("input[name='option']:checked");
+      if (!selected) {
+        alert("Please choose an answer.");
+        return;
+      }
+
+      if (selected.value === quiz[current].answer) {
+        score++;
+      }
+
+      current++;
+      if (current < quiz.length) {
+        loadQuestion();
+      } else {
+        document.querySelector(".quiz-box").innerHTML =
+          `<h2>You scored ${score} out of ${quiz.length}</h2>`;
+      }
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>

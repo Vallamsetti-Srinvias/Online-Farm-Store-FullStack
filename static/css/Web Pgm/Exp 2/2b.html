@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Bar Chart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    input {
+      margin: 5px;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+    canvas {
+      margin-top: 20px;
+      background: #fffbfb;
+      border: 1px solid #000000;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Bar Chart Data</h2>
+  <input type="text" id="labels" placeholder="Labels (e.g. A,B,C)" >
+  <input type="text" id="values" placeholder="Values (e.g. 10,20,30)" >
+  <button onclick="drawChart()">Draw Chart</button>
+
+  <canvas id="barChart" width="500" height="300"></canvas>
+
+  <script>
+    function drawChart() {
+      const labels = document.getElementById('labels').value.split(',');
+      const values = document.getElementById('values').value.split(',').map(Number);
+      const canvas = document.getElementById('barChart');
+      const ctx = canvas.getContext('2d');
+
+      // Clear previous chart
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const barWidth = 40;
+      const gap = 20;
+      const maxBarHeight = 200;
+      const maxValue = Math.max(...values);
+
+      labels.forEach((label, i) => {
+        const x = i * (barWidth + gap) + 50;
+        const barHeight = (values[i] / maxValue) * maxBarHeight;
+        const y = canvas.height - barHeight - 30;
+
+        // Draw bar
+        ctx.fillStyle = "#3498db";
+        ctx.fillRect(x, y, barWidth, barHeight);
+
+        // Draw value above bar
+        ctx.fillStyle = "#000";
+        ctx.fillText(values[i], x + 10, y - 5);
+
+        // Draw label below bar
+        ctx.fillText(label.trim(), x + 10, canvas.height - 10);
+      });
+    }
+  </script>
+
+</body>
+</html>

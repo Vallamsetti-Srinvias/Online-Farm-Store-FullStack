@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+    #message {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Registration Form</h2>
+
+  <form id="form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" placeholder="Enter your email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter your password">
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById("form");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      if (name.value.length < 3) {
+        message.textContent = "Name must be at least 3 characters";
+        message.style.color = "red";
+      } else if (!email.value.includes("@") || !email.value.includes(".")) {
+        message.textContent = "Enter a valid email";
+        message.style.color = "red";
+      } else if (password.value.length < 6) {
+        message.textContent = "Password must be at least 6 characters";
+        message.style.color = "red";
+      } else {
+        message.textContent = "Form submitted successfully!";
+        message.style.color = "green";
+        // Optionally clear the form
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

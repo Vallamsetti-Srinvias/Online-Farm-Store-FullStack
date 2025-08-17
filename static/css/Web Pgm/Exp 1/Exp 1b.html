@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 50px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+
+  <h3>Type a fruit name:</h3>
+  <input type="text" id="search" onkeyup="searchData()">
+  <div id="result"></div>
+
+  <script>
+    function searchData() {
+      const input = document.getElementById("search").value.toLowerCase();
+      let result = "";
+
+      if (input === "apple") {
+        result = "Apple is a fruit.";
+      } else if (input === "banana") {
+        result = "Banana is yellow.";
+      } else if (input === "carrot") {
+        result = "Carrot is orange.";
+      } else if (input === "") {
+        result = "";
+      } else {
+        result = "No match found.";
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+
+</body>
+</html>
